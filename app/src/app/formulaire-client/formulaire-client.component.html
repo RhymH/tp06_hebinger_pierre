@@ -1,0 +1,79 @@
+
+<div class="container details">
+  <br>
+
+  <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)" class="form-signin">
+    <h1>Client</h1>
+
+<!--    <p>{{(this.obsclient | async).nom}} </p>-->
+<!--    <p>{{(this.obsclient | async).prenom}} </p>-->
+
+    <input type="text" id="lastname" class="form-control" name="nom" placeholder="nom" [ngModel]="client.nom"
+           required #lastname="ngModel" [ngClass]="!f.submitted ? '' : lastname.valid ? 'is-valid' : 'is-invalid'">
+
+    <input type="text" id="firstname" class="form-control" name="prenom" placeholder="prenom" [ngModel]="client.prenom"
+           required #firstname="ngModel" [ngClass]="!f.submitted ? '' : firstname.valid ? 'is-valid' : 'is-invalid'">
+
+
+    <input type="text" id="adress" class="form-control" name="adresse" placeholder="adresse" [ngModel]="client.adresse"
+           required #adress="ngModel" [ngClass]="!f.submitted ? '' : adress.valid ? 'is-valid' : 'is-invalid'">
+    <input type="text" id="postal" class="form-control" name="postal" placeholder="codepostal" pattern="[0-9]{5}" [ngModel]="client.codepostal"
+           required #postal="ngModel" [ngClass]="!f.submitted ? '' : postal.valid ? 'is-valid' : 'is-invalid'">
+    <input type="text" id="city" class="form-control" name="ville" placeholder="ville" [ngModel]="client.ville"
+           required #city="ngModel" [ngClass]="!f.submitted ? '' : city.valid ? 'is-valid' : 'is-invalid'">
+    <input type="text" id="country" class="form-control" name="pays" placeholder="pays" [ngModel]="client.pays"
+           required #country="ngModel" [ngClass]="!f.submitted ? '' : country.valid ? 'is-valid' : 'is-invalid'">
+
+    <div>
+      <input type="tel" id="phone" class="form-control" name="tel" placeholder="Telephone" pattern="[0-9]{10}" [ngModel]="client.tel"
+             required #phone="ngModel" [ngClass]="!f.submitted ? '' : phone.valid ? 'is-valid' : 'is-invalid'">
+      <div class="invalid-feedback">
+        format 0000000000
+      </div>
+    </div>
+
+
+    <input type="email" id="email" class="form-control" name="mail" placeholder="email" [ngModel]="client.mail"
+           required pattern="^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9-.]+$"
+           #email="ngModel" [ngClass]="!f.submitted ? '' : email.valid ? 'is-valid' : 'is-invalid'">
+    <br>
+
+    <div>
+      <div id="civilite" class="row">
+        <div class="col">
+          <label class="civilite">Civilité</label><br>
+        </div>
+
+        <div class="col custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="customControlValidation2" name="civilite" value="homme" required [ngModel]="client.civilite"
+                 #gender="ngModel" [ngClass]="!f.submitted ? '' : gender.valid ? 'is-valid' : 'is-invalid'">
+          <label class="custom-control-label" for="customControlValidation2">M.</label>
+
+        </div>
+
+        <div class="col custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="customControlValidation3" name="civilite" value="femme" required [ngModel]="client.civilite"
+                 [ngClass]="!f.submitted ? '' : gender.valid ? 'is-valid' : 'is-invalid'">
+          <label class="custom-control-label" for="customControlValidation3">Mme.</label>
+        </div>
+
+      </div>
+    </div>
+
+    <br>
+    <div>
+      <input type="password" id="password" class="form-control" name="passwd" placeholder="mot de passe" [ngModel]="client.passwd"
+             required #password="ngModel" [ngClass]="!f.submitted ? '' : password.valid ? 'is-valid' : 'is-invalid'">
+      <input type="password" id="passwordconf" class="form-control" name="passwdConf" placeholder="mot de passe confirmation" [ngModel]="client.passwdConf"
+             required validateEqual="password" #confirmPassword="ngModel" [ngClass]="!f.submitted ? '' : confirmPassword.valid ? 'is-valid' : 'is-invalid'">
+      <div class="invalid-feedback">
+        Les deux mot de passe ne correspondent pas
+      </div>
+    </div>
+    <br>
+    <input type="submit" class="btn btn-lg btn-primary btn-block" value="LogIn">
+  </form>
+
+  <br>
+
+</div>

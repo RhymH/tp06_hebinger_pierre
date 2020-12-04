@@ -1,0 +1,12 @@
+[
+    {"nom": "guitare", "categorie": "musique", "prix": "17.50" },
+    {"nom": "flute", "categorie": "musique", "prix": "18.99"  },
+    {"nom": "tamtam", "categorie": "musique", "prix": "10.50"  },
+    {"nom": "lego", "categorie": "construction", "prix": "499.99"  },
+    {"nom": "duplo", "categorie": "construction", "prix": "8.50"  },
+    {"nom": "technique", "categorie": "construction", "prix": "10.50"  },
+    {"nom": "barbie", "categorie": "figurines", "prix": "25.79"  },
+    {"nom": "avengers", "categorie": "figurines", "prix": "15.50"  },
+    {"nom": "mikey", "categorie": "peluche", "prix": "10.50"  },
+    {"nom": "ourson", "categorie": "peluche", "prix": "100.00"  }
+]

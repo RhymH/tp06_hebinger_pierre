@@ -1,0 +1,29 @@
+<div id="recap">
+
+  <div *ngIf="client | async as thisclient">
+
+    <h1>Récap client</h1>
+    <br>
+    <p id="lastname">{{thisclient.nom}}</p>
+    <p id="firstname">{{thisclient.prenom}}</p>
+
+    <p id="adress">{{thisclient.adresse}}</p>
+    <p id="postal">{{thisclient.codepostal}}</p>
+    <p id="city">{{thisclient.ville}}</p>
+    <p id="country">{{thisclient.pays}}</p>
+
+    <p id="phone">{{thisclient.tel | tel}}</p>
+
+    <p id="email">{{thisclient.mail}}</p>
+    <br>
+    <p id="civilite">{{thisclient.civilite}}</p>
+    <br>
+
+    <div>
+      <p id="password">{{thisclient.passwd}}</p>
+      <p id="passwordconf">{{thisclient.passwdConf}}</p>
+    </div>
+
+  </div>
+
+</div>

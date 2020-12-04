@@ -1,0 +1,28 @@
+<div class="container details">
+  <br>
+  <div *ngFor="let item of article | async">
+
+    <div class="row">
+      <div class="col">
+        <img style="width: 100%" src="https://static1.squarespace.com/static/57fbdd00440243c787b8adbc/581b89c96a4963c5e6e834d8/581b8b8a725e250c765de348/1482087458582/?format=1500w" alt="produit">
+      </div>
+      <div class="col">
+        <br>
+        <p style="font-size: 2em">{{ item.nom }}</p>
+        <p>categorie : {{ item.categorie }}</p>
+      </div>
+      <div class="col-3">
+        <br>
+        <p style="font-size: 2em;">{{ item.prix }} €</p>
+        <button class="btn btn-primary" (click)="OnClick(item)" >Ajouter au panier</button>
+      </div>
+    </div>
+
+  </div>
+
+  <br>
+
+  <p></p>
+
+
+</div>
