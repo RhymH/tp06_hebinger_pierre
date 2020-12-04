@@ -1,1 +1,4 @@
-/vendor/*
+vendor/
+client/
+user/node_modules/
+node_modules/
