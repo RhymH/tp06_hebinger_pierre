@@ -5,19 +5,12 @@
   <form #f="ngForm" novalidate (ngSubmit)="save(f.value, f.valid)" class="form-login">
     <h1>Client</h1>
 
-    <input type="email" id="email" class="form-control" name="mail" placeholder="email" [ngModel]="client.mail"
-           required pattern="^[a-zA-Z0–9_.+-]+@[a-zA-Z0–9-]+.[a-zA-Z0–9-.]+$"
-           #email="ngModel" [ngClass]="!f.submitted ? '' : email.valid ? 'is-valid' : 'is-invalid'">
-        <div class="invalid-feedback">
-          Les deux mot de passe ne correspondent pas
-        </div>
+    <input type="text" id="login" class="form-control" name="login" placeholder="login" [ngModel]="client.login"
+           required #login="ngModel" [ngClass]="!f.submitted ? '' : login.valid ? 'is-valid' : 'is-invalid'">
     <br>
     <div>
-      <input type="password" id="password" class="form-control" name="passwd" placeholder="mot de passe" [ngModel]="client.passwd"
-             required #password="ngModel" [ngClass]="!f.submitted ? '' : password.valid ? 'is-valid' : 'is-invalid'">
-        <div class="invalid-feedback">
-          Les deux mot de passe ne correspondent pas
-        </div>
+      <input type="pass" id="pass" class="form-control" name="pass" placeholder="mot de passe" [ngModel]="client.pass"
+             required #pass="ngModel" [ngClass]="!f.submitted ? '' : pass.valid ? 'is-valid' : 'is-invalid'">
     </div>
     <br>
     <input type="submit" class="btn btn-lg btn-primary btn-block" value="LogIn">

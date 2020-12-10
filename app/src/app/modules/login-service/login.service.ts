@@ -13,24 +13,18 @@ export class LoginService {
 
   }
 
-  public client:Client;
+  public postClient(client :Client) : Observable<Client>{
 
-  public postClient(client :Client): Client {
+    let httpOptions = {headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' })};
 
-    this.http.post<Client>('/api/login', client,{observe: 'response'})
-      .subscribe(response => {
+    let data :String =
+      "login=" + client.login +
+      "&" + "pass=" + client.pass
+    ;
 
-        const keys = response.headers.keys();
+    console.log("login data " + JSON.stringify(data));
 
-        console.log(response.headers.get("authorization"));
-
-        this.client = response.body;
-
-        alert("login succes " + JSON.stringify(this.client));
-
-    });
-
-    return this.client;
+    return this.http.post<Client>('/api/login', data, httpOptions);
 
   }
 }

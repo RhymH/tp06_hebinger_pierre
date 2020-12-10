@@ -36,4 +36,40 @@ Utilisateur:
             length: 256
             options:
                 fixed: false
+        adresse:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+        ville:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+        pays:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+        tel:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+        mail:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
+        civilite:
+            type: string
+            nullable: true
+            length: 256
+            options:
+                fixed: false
     lifecycleCallbacks: {  }

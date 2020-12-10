@@ -2,53 +2,65 @@
 
 
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Utilisateur
- *
- * @ORM\Table(name="utilisateur")
- * @ORM\Entity
  */
 class Utilisateur
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id_user", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="utilisateur_id_user_seq", allocationSize=1, initialValue=1)
      */
     private $idUser;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="nom", type="string", length=30, nullable=true)
      */
     private $nom;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="prenom", type="string", length=30, nullable=true)
      */
     private $prenom;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="login", type="string", length=30, nullable=true)
      */
     private $login;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="password", type="string", length=256, nullable=true)
      */
     private $password;
+
+    /**
+     * @var string|null
+     */
+    private $adresse;
+
+    /**
+     * @var string|null
+     */
+    private $ville;
+
+    /**
+     * @var string|null
+     */
+    private $pays;
+
+    /**
+     * @var string|null
+     */
+    private $tel;
+
+    /**
+     * @var string|null
+     */
+    private $mail;
+
+    /**
+     * @var string|null
+     */
+    private $civilite;
 
 
     /**
@@ -155,5 +167,149 @@ class Utilisateur
     public function getPassword()
     {
         return $this->password;
+    }
+
+    /**
+     * Set adresse.
+     *
+     * @param string|null $adresse
+     *
+     * @return Utilisateur
+     */
+    public function setAdresse($adresse = null)
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    /**
+     * Get adresse.
+     *
+     * @return string|null
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set ville.
+     *
+     * @param string|null $ville
+     *
+     * @return Utilisateur
+     */
+    public function setVille($ville = null)
+    {
+        $this->ville = $ville;
+
+        return $this;
+    }
+
+    /**
+     * Get ville.
+     *
+     * @return string|null
+     */
+    public function getVille()
+    {
+        return $this->ville;
+    }
+
+    /**
+     * Set pays.
+     *
+     * @param string|null $pays
+     *
+     * @return Utilisateur
+     */
+    public function setPays($pays = null)
+    {
+        $this->pays = $pays;
+
+        return $this;
+    }
+
+    /**
+     * Get pays.
+     *
+     * @return string|null
+     */
+    public function getPays()
+    {
+        return $this->pays;
+    }
+
+    /**
+     * Set tel.
+     *
+     * @param string|null $tel
+     *
+     * @return Utilisateur
+     */
+    public function setTel($tel = null)
+    {
+        $this->tel = $tel;
+
+        return $this;
+    }
+
+    /**
+     * Get tel.
+     *
+     * @return string|null
+     */
+    public function getTel()
+    {
+        return $this->tel;
+    }
+
+    /**
+     * Set mail.
+     *
+     * @param string|null $mail
+     *
+     * @return Utilisateur
+     */
+    public function setMail($mail = null)
+    {
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+    /**
+     * Get mail.
+     *
+     * @return string|null
+     */
+    public function getMail()
+    {
+        return $this->mail;
+    }
+
+    /**
+     * Set civilite.
+     *
+     * @param string|null $civilite
+     *
+     * @return Utilisateur
+     */
+    public function setCivilite($civilite = null)
+    {
+        $this->civilite = $civilite;
+
+        return $this;
+    }
+
+    /**
+     * Get civilite.
+     *
+     * @return string|null
+     */
+    public function getCivilite()
+    {
+        return $this->civilite;
     }
 }

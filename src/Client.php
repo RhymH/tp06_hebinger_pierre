@@ -2,51 +2,33 @@
 
 
 
-use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Client
- *
- * @ORM\Table(name="client")
- * @ORM\Entity
  */
 class Client
 {
     /**
      * @var int
-     *
-     * @ORM\Column(name="id_client", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="client_id_client_seq", allocationSize=1, initialValue=1)
      */
     private $idClient;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="nom", type="string", length=30, nullable=true)
      */
     private $nom;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="prenom", type="string", length=30, nullable=true)
      */
     private $prenom;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="login", type="string", length=30, nullable=true)
      */
     private $login;
 
     /**
      * @var string|null
-     *
-     * @ORM\Column(name="password", type="string", length=256, nullable=true)
      */
     private $password;
 

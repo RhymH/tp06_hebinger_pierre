@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import {AppComponent} from '../app.component';
 import {ClientService} from '../modules/client.service';
 import {Observable} from 'rxjs';
+import {CreateClient} from '../modules/actions/client-action';
+import {Store} from '@ngxs/store';
 
 @Component({
   selector: 'app-formulaire-client',
@@ -14,7 +16,7 @@ export class FormulaireClientComponent implements OnInit {
 
   public client: Client;
 
-  constructor(private router: Router, private clientService: ClientService) { }
+  constructor(private router: Router, private clientService: ClientService, private store: Store) { }
 
   ngOnInit(): void {
 
@@ -27,22 +29,28 @@ export class FormulaireClientComponent implements OnInit {
       pays: '',
       tel: undefined,
       mail: '',
-      passwd: '',
+      login: '',
+      pass: '',
       passwdConf: '',
       civilite: ''
     }
   }
-
-
-  obsclient: Observable<Client>;
 
   save(model: Client, isValid: boolean){
     if(isValid){
 
       this.client = model;
 
-      this.obsclient = this.clientService.postClient(model);
-      this.obsclient.subscribe(res => console.log(res));
+      console.log(JSON.stringify(model));
+      this.clientService.postClient(model).subscribe(
+        result => {
+          this.store.dispatch(new CreateClient(result));
+        }
+        ,
+        error => {
+          alert("connexion refusée compte inconnu\n" + JSON.stringify(error));
+        }
+      );
 
       this.router.navigate(['recap']);
     }

@@ -3,6 +3,9 @@ import { Client } from "../modules/client";
 import {AppComponent} from '../app.component';
 import {ClientService} from '../modules/client.service';
 import {Observable} from 'rxjs';
+import {Store} from '@ngxs/store';
+import {ClientStateModel} from '../modules/states/client-state-model';
+import {ClientState} from '../modules/states/client-state';
 
 @Component({
   selector: 'app-recap',
@@ -13,10 +16,10 @@ export class RecapComponent implements OnInit {
 
   client: Observable<Client>;
 
-  constructor(private app: AppComponent, private clientService: ClientService) {}
+  constructor(private app: AppComponent, private store: Store) {}
 
   ngOnInit(): void {
-    this.client = this.clientService.client;
+    this.client = this.store.select(ClientState.getClient);
   }
 
 }

@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './footer/footer.component';
 import { TetiereComponent } from './tetiere/tetiere.component';
-import { HttpClientModule } from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import { NgxsModule } from '@ngxs/store';
@@ -19,6 +19,9 @@ import {CartModule} from './cart/cart.module';
 import {RecapModule} from './recap/recap.module';
 import { LoginComponent } from './login/login.component';
 import {LoginModule} from './login/login.module';
+import {ApiHttpInterceptor} from './modules/api-http-interceptor';
+import {JwtState} from './modules/states/jwt-state';
+import {ClientState} from './modules/states/client-state';
 
 
 @NgModule({
@@ -35,7 +38,7 @@ import {LoginModule} from './login/login.module';
     FormsModule,
     ReactiveFormsModule,
     AppRouterModule,
-    NgxsModule.forRoot([ArticlesState]),
+    NgxsModule.forRoot([ArticlesState, JwtState, ClientState]),
     FormulaireClientModule,
     CatalogueModule,
     DetailsModule,
@@ -43,7 +46,7 @@ import {LoginModule} from './login/login.module';
     RecapModule,
     LoginModule
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

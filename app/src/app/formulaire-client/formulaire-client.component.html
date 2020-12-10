@@ -60,9 +60,14 @@
       </div>
     </div>
 
+
+
+
     <br>
+    <input type="text" id="login" class="form-control" name="login" placeholder="login" [ngModel]="client.login"
+           required #login="ngModel" [ngClass]="!f.submitted ? '' : login.valid ? 'is-valid' : 'is-invalid'">
     <div>
-      <input type="password" id="password" class="form-control" name="passwd" placeholder="mot de passe" [ngModel]="client.passwd"
+      <input type="password" id="password" class="form-control" name="pass" placeholder="mot de passe" [ngModel]="client.pass"
              required #password="ngModel" [ngClass]="!f.submitted ? '' : password.valid ? 'is-valid' : 'is-invalid'">
       <input type="password" id="passwordconf" class="form-control" name="passwdConf" placeholder="mot de passe confirmation" [ngModel]="client.passwdConf"
              required validateEqual="password" #confirmPassword="ngModel" [ngClass]="!f.submitted ? '' : confirmPassword.valid ? 'is-valid' : 'is-invalid'">

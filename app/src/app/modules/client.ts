@@ -7,7 +7,8 @@ export class Client {
   pays: string;
   tel: number;
   mail: string;
-  passwd: string;
+  login: string;
+  pass: string;
   passwdConf: string;
   civilite: string;
 
